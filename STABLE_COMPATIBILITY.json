@@ -1,0 +1,132 @@
+{
+  "network": "Stable Studionet",
+  "chainId": 61999,
+  "sdk": "1.1.8",
+  "readOnly": true,
+  "returnedChainId": 61999,
+  "schema": {
+    "ctor": {
+      "params": [],
+      "kwparams": {}
+    },
+    "methods": {
+      "create_seed": {
+        "params": [
+          [
+            "name",
+            "string"
+          ],
+          [
+            "description",
+            "string"
+          ],
+          [
+            "features",
+            [
+              {
+                "$rep": "string"
+              }
+            ]
+          ],
+          [
+            "category",
+            "string"
+          ],
+          [
+            "allow_derivation",
+            "bool"
+          ],
+          [
+            "request_id",
+            "string"
+          ]
+        ],
+        "kwparams": {},
+        "readonly": false,
+        "ret": "int",
+        "payable": false
+      },
+      "fuse": {
+        "params": [
+          [
+            "parent_a",
+            "int"
+          ],
+          [
+            "parent_b",
+            "int"
+          ],
+          [
+            "request_id",
+            "string"
+          ]
+        ],
+        "kwparams": {},
+        "readonly": false,
+        "ret": "int",
+        "payable": false
+      },
+      "get_lineage": {
+        "params": [
+          [
+            "work_id",
+            "int"
+          ]
+        ],
+        "kwparams": {},
+        "readonly": true,
+        "ret": "string"
+      },
+      "get_request": {
+        "params": [
+          [
+            "creator",
+            "string"
+          ],
+          [
+            "request_id",
+            "string"
+          ]
+        ],
+        "kwparams": {},
+        "readonly": true,
+        "ret": "int"
+      },
+      "get_work": {
+        "params": [
+          [
+            "work_id",
+            "int"
+          ]
+        ],
+        "kwparams": {},
+        "readonly": true,
+        "ret": "string"
+      },
+      "list_works": {
+        "params": [
+          [
+            "start",
+            "int"
+          ],
+          [
+            "limit",
+            "int"
+          ]
+        ],
+        "kwparams": {},
+        "readonly": true,
+        "ret": "string"
+      },
+      "total": {
+        "params": [],
+        "kwparams": {},
+        "readonly": true,
+        "ret": "int"
+      }
+    }
+  },
+  "status": "READ_ONLY_SCHEMA_PASS",
+  "sourceSha256": "cf1a92bd0956baf2cad0f54a7d8a677c312156fa9f54188b51a5b240190ffe8e",
+  "recordedAtUtc": "2026-10-13T16:31:00.016530+00:00"
+}
