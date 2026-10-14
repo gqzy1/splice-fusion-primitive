@@ -9,7 +9,10 @@ from gltest.direct import create_address
 
 SOURCE = Path(__file__).parents[1] / 'contracts/creative_fusion.py'
 CANDIDATE = {'name':'Moon Moth Laundromat','description':'A memory-laundering moth folds moonlight into glowing wings, using its antennae to spin lost memories into clean silver thread.','features':['folds moonlight into wings','antennae spin lost memories','silver memory thread'], 'bridge':'Moonlight folding powers the moth antennae to weave laundered memories into silver thread.'}
-REVIEW = {'parent_a_preserved':True,'parent_b_preserved':True,'integrated':True,'safe':True,'evidence_a':'Moonlight folding and memory laundering become the wing mechanism.','evidence_b':'Moth antennae weave the memories into thread.','interaction':'The moth uses moonlight folding to power memory spinning.'}
+REVIEW = {'parent_a_preserved':True,'parent_b_preserved':True,'integrated':True,'safe':True,
+'evidence_a':{'feature_index':0,'source_quote':'folds moonlight','field':'description','index':0,'quote':'folds moonlight into glowing wings'},
+'evidence_b':{'feature_index':0,'source_quote':'antennae spin silver thread','field':'description','index':0,'quote':'antennae to spin lost memories into clean silver thread'},
+'interaction':{'field':'description','index':0,'quote':'folds moonlight into glowing wings, using its antennae to spin lost memories into clean silver thread'}}
 
 @pytest.fixture
 def setup(direct_vm,direct_deploy):
@@ -83,7 +86,7 @@ def test_consensus_commit_lineage_and_idempotence(setup,monkeypatch):
 @pytest.mark.parametrize('field',['parent_a_preserved','parent_b_preserved','integrated','safe'])
 def test_substantive_rejection_no_persistence(setup,monkeypatch,field):
     vm,c,a,b=setup;r=dict(REVIEW);r[field]=False;harness(vm,monkeypatch,r)
-    with pytest.raises(Exception,match='MOCK_CONSENSUS_DISAGREE'):c.fuse(a,b,'request-reject')
+    with pytest.raises(Exception,match='CONSENSUS_NOT_COMPLETED'):c.fuse(a,b,'request-reject')
     assert c.total()==2 and c.get_request(str(vm.sender),'request-reject')==0
     assert json.loads(c.get_work(a))['kind']=='seed'
 
@@ -133,7 +136,7 @@ def test_validator_rejects_non_return_and_binds_source(setup,monkeypatch):
         seen.append((leader,validator))
         raise sdkvm.UserError('CAPTURE_ONLY')
     monkeypatch.setattr(sdkvm,'run_nondet_unsafe',capture)
-    with pytest.raises(Exception,match='CAPTURE_ONLY'):c.fuse(a,b,'request-capture')
+    with pytest.raises(Exception,match='CONSENSUS_NOT_COMPLETED'):c.fuse(a,b,'request-capture')
     leader,validator=seen[0]
     assert validator(sdkvm.UserError('MODEL_DOWN')) is False
     assert validator(sdkvm.Return('not JSON')) is False
@@ -157,5 +160,5 @@ def test_model_failure_before_state_write(setup,monkeypatch):
     import genlayer.gl.vm as sdkvm
     def fail(leader,validator):raise sdkvm.UserError('MODEL_UNAVAILABLE')
     monkeypatch.setattr(sdkvm,'run_nondet_unsafe',fail)
-    with pytest.raises(Exception,match='MODEL_UNAVAILABLE'):c.fuse(a,b,'request-failed-model')
+    with pytest.raises(Exception,match='CONSENSUS_NOT_COMPLETED'):c.fuse(a,b,'request-failed-model')
     assert c.total()==2 and c.get_request(str(vm.sender),'request-failed-model')==0

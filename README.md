@@ -2,12 +2,14 @@
 
 Two independently authored idea seeds become one new, consensus-accepted creation. The primitive binds the generated object to immutable parent records, their real wallet contributors, a versioned input identity and an explicit public derivation permission.
 
-**Status:** MVP source and offline tests complete. Stable Studionet read-only schema check passed. **Not deployed; no live transactions or onchain examples exist yet.**
+**SPLICE-V2 is deployed on Stable Studionet (61999).** Four recorded transactions are FINALIZED. Work #3, Prismatic Resonator Beetle, preserves parent seeds #1 and #2 and their two wallet contributors. See [ONCHAIN_EVIDENCE.md](ONCHAIN_EVIDENCE.md).
+
+Contract: `0x834f53cf56AE590F63cee321eE1A8CE566F3E9c4` · [Explorer](https://explorer-studio.genlayer.com/address/0x834f53cf56AE590F63cee321eE1A8CE566F3E9c4) · [Wallet-free verified example](https://gqzy1.github.io/splice-club/?w=1).
 
 ## Mechanism
 
 1. `create_seed` records name, short description, 1–3 distinctive features, category and sender. Public derivation must be explicitly accepted.
-2. `fuse` requires two existing seeds from different creator addresses. Parent order is canonicalized by ID. V1 stops at depth 1.
+2. `fuse` requires two existing seeds from different creator addresses. Parent order is canonicalized by ID. V2 stops at depth 1.
 3. The Leader creates a bounded JSON candidate from an in-memory snapshot of both immutable parents.
 4. Each Validator reads the same parents and exact proposed candidate and makes an independent semantic LLM call. It checks distinctive feature preservation for each parent, an actual interaction between them, and safe fictional content. A candidate's own bridge statement is not proof.
 5. Only an accepted candidate reaches deterministic storage. Parent IDs, creators, content hashes, input SHA256, caller, version and permission are saved with the work.
@@ -58,6 +60,6 @@ Tests load the **official GenVM v0.2.16 runner and SDK/storage** through `genlay
 
 ## Stable-only environment
 
-Chain ID **61999**, RPC **https://studio.genlayer.com/api**. Runner dependency is pinned in the source header to the runner from official GenVM v0.2.16. JS integration uses **genlayer-js 1.1.8** in the companion project. No other network is supported. The source passed `gen_getContractSchemaForCode` on Stable; this is a read-only compatibility check and not a deployment or consensus test.
+Chain ID **61999**, RPC **https://studio.genlayer.com/api**. Runner dependency is pinned in the source header to the runner from official GenVM v0.2.16. JS integration uses **genlayer-js 1.1.8** in the companion project. No other network is supported. The deployment and one real AI fusion were finalized on Stable. Exact GenVM node binary version is not verified; the pinned offline SDK runner version is a separate fact. One accepted example does not measure universal model accuracy.
 
 See [SOURCE_PROVENANCE.md](SOURCE_PROVENANCE.md), [ORIGINALITY.md](ORIGINALITY.md), [TEST_RESULTS.md](TEST_RESULTS.md), [DEPLOYMENT.md](DEPLOYMENT.md). MIT License.
