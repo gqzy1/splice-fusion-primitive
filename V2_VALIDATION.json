@@ -1,0 +1,40 @@
+{
+  "sourceSHA256": "4a92361b30f2b504ec02e699a816bab78cac47504dafafa9a2ca158c947f07b1",
+  "contractDirectTests": {
+    "status": "PASS",
+    "tests": 41,
+    "harness": "genlayer-test==0.29.2 + official v0.2.16 SDK/storage; direct CPython; explicit Validator invocation",
+    "classification": "DETERMINISTIC PASS / MOCK PASS"
+  },
+  "stableSchema": "PASS; unchanged public signatures",
+  "genvmSchemaStageHelpers": {
+    "status": "GENVM VERIFIED",
+    "assertions": 30,
+    "observedExecutor": "v0.2.16-x86_64-linux-release",
+    "scope": "temporary schema-only source appendix, parser/reference helpers; no business writes or LLM calls"
+  },
+  "operatorV2": {
+    "tests": 49,
+    "status": "MOCK PASS",
+    "typescript": "PASS",
+    "build": "PASS",
+    "releaseLock": false
+  },
+  "publicPreview": {
+    "tests": 45,
+    "status": "PASS",
+    "typescript": "PASS",
+    "build": "PASS",
+    "sourceUnchanged": true
+  },
+  "operatorV1": {
+    "tests": 43,
+    "status": "MOCK PASS",
+    "sourceIntegrity": "PASS; unchanged"
+  },
+  "realModel": "NOT VERIFIED",
+  "realOnchain": "NOT VERIFIED",
+  "realChromeOKX": "NOT VERIFIED; jsdom UI and local HTTP only",
+  "writes": 0,
+  "signatures": 0
+}

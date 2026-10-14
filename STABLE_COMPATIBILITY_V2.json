@@ -1,0 +1,135 @@
+{
+  "network": "Stable Studionet",
+  "chainId": 61999,
+  "sdk": "1.1.8",
+  "readOnly": true,
+  "sourceSha256": "4a92361b30f2b504ec02e699a816bab78cac47504dafafa9a2ca158c947f07b1",
+  "recordedAtUtc": "2026-10-14T09:42:50.291Z",
+  "returnedChainId": 61999,
+  "schema": {
+    "ctor": {
+      "params": [],
+      "kwparams": {}
+    },
+    "methods": {
+      "create_seed": {
+        "params": [
+          [
+            "name",
+            "string"
+          ],
+          [
+            "description",
+            "string"
+          ],
+          [
+            "features",
+            [
+              {
+                "$rep": "string"
+              }
+            ]
+          ],
+          [
+            "category",
+            "string"
+          ],
+          [
+            "allow_derivation",
+            "bool"
+          ],
+          [
+            "request_id",
+            "string"
+          ]
+        ],
+        "kwparams": {},
+        "readonly": false,
+        "ret": "int",
+        "payable": false
+      },
+      "fuse": {
+        "params": [
+          [
+            "parent_a",
+            "int"
+          ],
+          [
+            "parent_b",
+            "int"
+          ],
+          [
+            "request_id",
+            "string"
+          ]
+        ],
+        "kwparams": {},
+        "readonly": false,
+        "ret": "int",
+        "payable": false
+      },
+      "get_lineage": {
+        "params": [
+          [
+            "work_id",
+            "int"
+          ]
+        ],
+        "kwparams": {},
+        "readonly": true,
+        "ret": "string"
+      },
+      "get_request": {
+        "params": [
+          [
+            "creator",
+            "string"
+          ],
+          [
+            "request_id",
+            "string"
+          ]
+        ],
+        "kwparams": {},
+        "readonly": true,
+        "ret": "int"
+      },
+      "get_work": {
+        "params": [
+          [
+            "work_id",
+            "int"
+          ]
+        ],
+        "kwparams": {},
+        "readonly": true,
+        "ret": "string"
+      },
+      "list_works": {
+        "params": [
+          [
+            "start",
+            "int"
+          ],
+          [
+            "limit",
+            "int"
+          ]
+        ],
+        "kwparams": {},
+        "readonly": true,
+        "ret": "string"
+      },
+      "total": {
+        "params": [],
+        "kwparams": {},
+        "readonly": true,
+        "ret": "int"
+      }
+    }
+  },
+  "status": "READ_ONLY_SCHEMA_PASS",
+  "version": "SPLICE-V2",
+  "depends": "py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6",
+  "verificationScope": "READ_ONLY_SCHEMA; not real model or consensus"
+}

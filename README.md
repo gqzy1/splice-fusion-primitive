@@ -2,12 +2,12 @@
 
 Two independently authored idea seeds become one new, consensus-accepted creation. The primitive binds the generated object to immutable parent records, their real wallet contributors, a versioned input identity and an explicit public derivation permission.
 
-**Status:** MVP source and offline tests complete. Stable Studionet read-only schema check passed. **Not deployed; no live transactions or onchain examples exist yet.**
+**Status:** SPLICE-V2 candidate for review, not deployed. V1 deployment and two seeds are preserved separately; V1 fusion failed. See V2_REVISION.md and DEPLOYMENT_V2_DRAFT.json. Real V2 model/consensus is NOT VERIFIED.
 
 ## Mechanism
 
 1. `create_seed` records name, short description, 1–3 distinctive features, category and sender. Public derivation must be explicitly accepted.
-2. `fuse` requires two existing seeds from different creator addresses. Parent order is canonicalized by ID. V1 stops at depth 1.
+2. `fuse` requires two existing seeds from different creator addresses. Parent order is canonicalized by ID. The current primitive stops at depth 1.
 3. The Leader creates a bounded JSON candidate from an in-memory snapshot of both immutable parents.
 4. Each Validator reads the same parents and exact proposed candidate and makes an independent semantic LLM call. It checks distinctive feature preservation for each parent, an actual interaction between them, and safe fictional content. A candidate's own bridge statement is not proof.
 5. Only an accepted candidate reaches deterministic storage. Parent IDs, creators, content hashes, input SHA256, caller, version and permission are saved with the work.

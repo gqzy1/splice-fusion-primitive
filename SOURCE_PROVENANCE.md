@@ -1,13 +1,9 @@
-# Source provenance
+# V2 official source provenance
 
-`contracts/creative_fusion.py` is the canonical complete source for this primitive, created for SPLICE.CLUB. No prior user project source was copied. It is a single deployable Python file with no application-local imports.
+Canonical: contracts/creative_fusion.py. Version SPLICE-V2. SHA256 4a92361b30f2b504ec02e699a816bab78cac47504dafafa9a2ca158c947f07b1.
 
-Sources consulted for public runtime APIs and constraints:
+B includes the same complete bytes in intelligent-contract/contracts/creative_fusion.py and local-operator-v2/contracts/creative_fusion.py. V2 is not deployed; see DEPLOYMENT_V2_DRAFT.json.
 
-- [Official GenVM v0.2.16 source](https://github.com/genlayerlabs/genvm/tree/v0.2.16), including runner parsing, hashes and `gl.vm.run_nondet_unsafe` / `Return.calldata`.
-- [Official GenVM v0.2.16 release](https://github.com/genlayerlabs/genvm/releases/tag/v0.2.16); runner hash is pinned in the contract header.
-- [GenLayer Equivalence Principle](https://docs.genlayer.com/developers/intelligent-contracts/equivalence-principle): independent source-grounded review for open-ended generation.
-- Official npm `genlayer-js@1.1.8` package typings and implementation: Stable chain preset, public calls, write encoding and transaction receipts.
-- Official `genlayer-test==0.29.2` direct runner implementation; tests explicitly compensate for its default skip of Validator execution.
+V1 bytes are preserved at archive/v1/creative_fusion.py with SHA256 cf1a92bd0956baf2cad0f54a7d8a677c312156fa9f54188b51a5b240190ffe8e. Its known address and successful seeds remain V1 evidence only. Main and historical commits remain unchanged.
 
-The companion project includes the full canonical source unchanged. `SOURCE_SHA256.txt` records exact bytes. Code is MIT licensed. Creative record permission `PUBLIC-DERIVATION-V1` is an application permission acknowledgement, not a legal ownership certification.
+Fixed official GenVM v0.2.16 runner hash is unchanged. genlayer-test 0.29.2 direct tests load that official SDK/storage with mocked model/consensus. Stable schema read is separately recorded; neither proves real AI consensus. No JSON-mode parameter has been introduced. MIT License.

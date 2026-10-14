@@ -1,0 +1,29 @@
+{
+  "sourceSHA256": "4a92361b30f2b504ec02e699a816bab78cac47504dafafa9a2ca158c947f07b1",
+  "chainId": 61999,
+  "readOnly": true,
+  "contractVersion": "SPLICE-V2",
+  "probes": [
+    {
+      "name": "top_level_sentinel",
+      "outcome": "ERROR",
+      "message": "An internal error was received.\n\nDetails: ('execution failed', {'stdout': '', 'stderr': 'Traceback (most recent call last):\\n  File \"/py/libs/_genlayer_runner.py\", line 180, in <module>\\n    _handle_main()\\n    ~~~~~~~~~~~~^^\\n  File \"/py/libs/_genlayer_runner.py\", line 149, in _handle_main\\n    import contract as _user_contract_module  # type: ignore\\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"/contract.py\", line 318, in <module>\\n    raise Exception(\"V2_RUNTIME_SENTINEL\")\\nException: V2_RUNTIME_SENTINEL\\n', 'genvm_log': [{'ts': '1791971453369', 'target': 'genvm_common', 'message': 'logging initialized', 'version': 'v0.2.16-x86_64-linux-release', 'file': 'common/src/lib.rs:75', 'level': 'info'}, {'ts': '1791971453370', 'target': 'genvm::exe::run', 'message': 'genvm id', 'genvm_id': '17628', 'file': 'src/exe/run.rs:172', 'level': 'info'}, {'ts': '1791971453876', 'target': 'genvm', 'message': 'metrics', 'metrics': {'gvm': {'hosts': [{'time': 2299}, {'time': 0}], 'llm_module': {'calls': 0, 'time': 0}, 'supervisor': {'compilation_time': 0, 'compiled_modules': 0, 'precompile_hits': 2}, 'web_module': {'calls': 0, 'time': 0}}, 'llm': None, 'web': None}, 'file': 'src/lib.rs:260', 'level': 'info'}], 'result': '{\"kind\": \"VM_ERROR\", \"message\": \"exit_code 1\"}'})\nVersion: viem@2.57.5"
+    },
+    {
+      "name": "runtime_helpers",
+      "outcome": "RETURNED_SCHEMA",
+      "schemaKeys": [
+        "ctor",
+        "methods"
+      ]
+    },
+    {
+      "name": "log_visibility",
+      "outcome": "ERROR",
+      "message": "An internal error was received.\n\nDetails: ('execution failed', {'stdout': 'SPLICE-V2:RUNTIME_LOG_PROBE\\n', 'stderr': 'Traceback (most recent call last):\\n  File \"/py/libs/_genlayer_runner.py\", line 180, in <module>\\n    _handle_main()\\n    ~~~~~~~~~~~~^^\\n  File \"/py/libs/_genlayer_runner.py\", line 149, in _handle_main\\n    import contract as _user_contract_module  # type: ignore\\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \"/contract.py\", line 319, in <module>\\n    raise Exception(\"V2_RUNTIME_SENTINEL\")\\nException: V2_RUNTIME_SENTINEL\\n', 'genvm_log': [{'ts': '1791971563990', 'target': 'genvm_common', 'message': 'logging initialized', 'version': 'v0.2.16-x86_64-linux-release', 'file': 'common/src/lib.rs:75', 'level': 'info'}, {'ts': '1791971563990', 'target': 'genvm::exe::run', 'message': 'genvm id', 'genvm_id': '799', 'file': 'src/exe/run.rs:172', 'level': 'info'}, {'ts': '1791971564493', 'target': 'genvm', 'message': 'metrics', 'metrics': {'gvm': {'hosts': [{'time': 2110}, {'time': 0}], 'llm_module': {'calls': 0, 'time': 0}, 'supervisor': {'compilation_time': 0, 'compiled_modules': 0, 'precompile_hits': 2}, 'web_module': {'calls': 0, 'time': 0}}, 'llm': None, 'web': None}, 'file': 'src/lib.rs:260', 'level': 'info'}], 'result': '{\"kind\": \"VM_ERROR\", \"message\": \"exit_code 1\"}'})\nVersion: viem@2.57.5"
+    }
+  ],
+  "realModel": "NOT VERIFIED",
+  "realOnchain": "NOT VERIFIED",
+  "checkedAt": "2026-10-14T09:52:45.195Z"
+}
