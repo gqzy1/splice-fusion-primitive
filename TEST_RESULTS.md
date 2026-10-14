@@ -1,13 +1,8 @@
-# Verification results
+# V2 validation
 
-- Offline tests: **31 PASS**, 0 failures.
-- Real onchain E2E: **NOT RUN LIVE**.
-- LLM replies and consensus: **SIMULATED / MOCKED** in tests.
-- Stable Studionet schema: **READ_ONLY_SCHEMA_PASS**, chain ID 61999.
-- A/B complete contract bytes and frontend manifest: **SOURCE_INTEGRITY_PASS**.
+- Contract regression: 41/41 tests passed on 2026-10-14 using genlayer-test 0.29.2 and the pinned official GenVM v0.2.16 SDK runner. LLM and consensus responses are mocked; these tests cover parsing, bounded schemas, source-field citation binding, immutable snapshots, request idempotence, fail-closed rejection and lineage storage.
+- `python scripts/verify_evidence.py`: PASS. Source hash matches the recorded deployment bytes; all four finalized successful receipts, zero reported fees, parent hashes, input identity and request fingerprint verified.
+- Existing real deployment: four finalized transactions; one successful native AI fusion. [Onchain evidence](ONCHAIN_EVIDENCE.md).
+- Real read-only SDK recheck: finalized T04 MAJORITY_AGREE / SUCCESS, get_lineage(3) and list_works(1,30) read successfully on 2026-10-14. No new writes.
 
-Command: `PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 python -m pytest -p gltest.direct.pytest_plugin tests -q`.
-
-Tests use the official GenVM v0.2.16 SDK and storage. They cover input shape/length, permission, sender binding, two creators, invalid/self/child parents, request conflicts and idempotence, canonical lineage, model output errors, independent Validator rejection for each substantive criterion, malformed review, prompt separation, model failure before state writes and bounded pagination. The official runner-bundled cloudpickle serializes production Leader/Validator closures.
-
-The custom consensus harness explicitly executes the production Validator BEFORE the state-writing path; its model verdict remains a fixture. These tests do not prove live multi-validator consensus, universal injection resistance, visual quality or real transaction rollback under all VM faults.
+The offline SDK version does not prove the exact deployed GenVM node binary version. Mock rejection fixtures are not a real-model accuracy benchmark. One successful real fusion is a bounded example.
